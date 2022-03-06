@@ -13,10 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('description_attribute_on_jadwal', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+        if(Schema::hasTable('jadwal'))
+        {
+            Schema::table('jadwal', function(Blueprint $table) {
+                $table->string('nama', 50)->after('id');
+            });
+        }
     }
 
     /**

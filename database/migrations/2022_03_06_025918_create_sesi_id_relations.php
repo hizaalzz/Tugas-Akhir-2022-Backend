@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('sesi_id_relations', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+        if (Schema::hasTable('sesi')) {
+            Schema::table('status', function(Blueprint $table) {
+                $table->foreign('sesi_id')->references('id')->on('sesi');
+            });
+        }
     }
 
     /**

@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('status', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('jadwal_id', false)->unsigned();
+            $table->bigInteger('sesi_id', false)->unsigned();
+            $table->enum('status', ['Aktif', 'Nonaktif']);
+            $table->string('token', 6)->nullable();
             $table->timestamps();
         });
     }

@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('jadwal_id_relations', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+        if (Schema::hasTable('statuses')) {
+            Schema::table('statuses', function (Blueprint $table) {
+                $table->foreign('jadwal_id')->references('id')->on('jadwal');
+            });
+        }
     }
 
     /**

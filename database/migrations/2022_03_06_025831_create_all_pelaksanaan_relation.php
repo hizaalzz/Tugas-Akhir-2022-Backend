@@ -13,10 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('all_pelaksanaan_relation', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+        if(Schema::hasTable('pelaksanaan'))
+        {
+            Schema::table('pelaksanaan', function(Blueprint $table) {
+                $table->foreign('sesi_id')->references('id')->on('sesi');
+                $table->foreign('murid_id')->references('id')->on('murid');
+                $table->foreign('ruangan_id')->references('id')->on('ruangan');
+            });
+        }
     }
 
     /**

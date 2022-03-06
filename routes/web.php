@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\AuthAdmin\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,18 +13,8 @@ use App\Http\Controllers\AuthAdmin\LoginController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Route::get('/', function () {
-    return redirect()->route('admin.login');
+    return view('welcome');
 });
 
 Auth::routes();
-
-Route::prefix('admin')->group(function() {
-    Route::get('/login', [LoginController::class, 'showLoginForm'])->name('admin.login');
-    Route::post('/login', [LoginController::class, 'login']);
-    Route::get('/logout', [LoginController::class, 'logout'])->name('admin.logout');
-});

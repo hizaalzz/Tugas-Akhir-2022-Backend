@@ -13,9 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('all_jadwal_relations', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::table('jadwal', function(Blueprint $table) {
+            $table->foreign('kelas_id')->references('id')->on('kelas');
+            $table->foreign('matapelajaran_id')->references('id')->on('matapelajaran');
+            $table->foreign('guru_id')->references('id')->on('guru');
         });
     }
 

@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('sesi', function (Blueprint $table) {
             $table->id();
+            $table->string('nama')->unique();
+            $table->time('start');
+            $table->time('end');
             $table->timestamps();
         });
     }

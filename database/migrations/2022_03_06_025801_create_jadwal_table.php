@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('jadwal', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('kelas_id', false)->unsigned();
+            $table->bigInteger('matapelajaran_id', false)->unsigned();
+            $table->bigInteger('guru_id', false)->unsigned();
+            $table->date('tanggal');
+            $table->time('tanggal_expire');
+            $table->float('kkm');
             $table->timestamps();
         });
     }

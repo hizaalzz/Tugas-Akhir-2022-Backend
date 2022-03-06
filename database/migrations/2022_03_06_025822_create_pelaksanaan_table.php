@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('pelaksanaan', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('sesi_id', false)->unsigned();
+            $table->bigInteger('murid_id', false)->unsigned();
+            $table->bigInteger('ruangan_id', false)->unsigned();
             $table->timestamps();
         });
     }
