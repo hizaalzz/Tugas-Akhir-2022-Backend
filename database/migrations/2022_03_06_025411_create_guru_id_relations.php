@@ -13,10 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('guru_id_relations', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+        if(Schema::hasTable('admins') && Schema::hasTable('guru'))
+        {
+            Schema::table('admins', function(Blueprint $table){
+                $table->bigInteger('guru_id', false)->unsigned();
+
+                $table->foreign('guru_id')->references('id')->on('guru');
+            });
+        }
     }
 
     /**

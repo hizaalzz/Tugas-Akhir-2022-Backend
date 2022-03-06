@@ -15,8 +15,16 @@ return new class extends Migration
     {
         Schema::create('kelas', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_kelas');
+            $table->bigInteger('level_id', false)->unsigned();
             $table->timestamps();
         });
+
+        if (Schema::hasTable('levels')) {
+            Schema::table('kelas', function(Blueprint $table) {
+                $table->foreign('level_id')->references('id')->on('levels');
+            });
+        }
     }
 
     /**

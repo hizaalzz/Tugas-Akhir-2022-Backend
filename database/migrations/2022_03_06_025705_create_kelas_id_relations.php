@@ -13,10 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('kelas_id_relations', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+        if (Schema::hasTable('kelas')) {
+            Schema::table('murid', function(Blueprint $table) {
+                $table->bigInteger('kelas_id', false)->unsigned()->nullable();
+
+                $table->foreign('kelas_id')->references('id')->on('kelas')->onDelete('set null');
+            });
+        }
     }
 
     /**

@@ -13,10 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('murid_id_relations', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+        if(Schema::hasTable('users')) 
+        {
+            Schema::table('users', function(Blueprint $table) {
+                $table->bigInteger('murid_id', false)->unsigned();
+
+                $table->foreign('murid_id')->references('id')->on('murid');
+            });
+        }
     }
 
     /**
