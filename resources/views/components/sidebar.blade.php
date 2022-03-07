@@ -19,172 +19,72 @@
             <ul class="metismenu list-unstyled" id="side-menu">
                 <li class="menu-title">Menu</li>
                 <li>
-                    <a href="{{ route('dashboard') }}" class="waves-effect">
+                    <a href="/dashboardadmin" class=" waves-effect">
                         <i class="mdi mdi-airplay"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 <li>
-                    <a href="" class="waves-effect">
+                    <a href="/penilaian" class=" waves-effect">
                         <i class="mdi mdi-lead-pencil"></i>
                         <span>Hasil Ujian</span>
                     </a>
                 </li>
+
                 <li class="menu-title">Manajemen</li>
                 <li>
-                    <a href="#" class="has-arrow waves-effect">
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="mdi mdi-database"></i>
                         <span>Master</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        @can('viewAny', App\Models\Admin::class)
-                        <li>
-                            <a href="">
-                                <i class="mdi mdi-account-star"></i>
-                                <span>Data Admin</span>
-                            </a>
-                        </li>
-                        @endcan
-                        @can('viewAny', App\Models\Guru::class)
-                        <li>
-                            <a href=""
-                                class="waves-effect @if(Request::is('guru') || Request::is('guru/*')) mm-active @endif">
-                                <i class="mdi mdi-account-tie"></i>
-                                <span>Data Guru</span>
-                            </a>
-                        </li>
-                        @endcan
-                        @can('viewAny', App\Models\Murid::class)
-                        <li>
-                            <a href=""
-                                class="waves-effect @if(Request::is('murid') || Request::is('murid/*')) mm-active @endif">
-                                <i class="mdi mdi-account-supervisor"></i>
-                                <span>Data Murid</span>
-                            </a>
-                        </li>
-                        @endcan
-                        @can('viewAny', App\Models\Matapelajaran::class)
-                        <li>
-                            <a href="" class="waves-effect @if(Request::is('matapelajaran') || Request::is('matapelajaran/*')) mm-active @endif">
-                                <i class="mdi mdi-notebook"></i>
-                                <span>Matapelajaran</span>
-                            </a>  
-                        </li>
-                        @endcan
-                        @if(Auth::guard('admin')->check())
-                        <li>    
-                            <a href="" class="waves-effect @if(Request::is('jenisujian') || Request::is('jenisujian/*')) mm-active @endif">
-                                <i class="mdi mdi-format-list-checkbox"></i>
-                                <span>Data Jenis Ujian</span>
-                            </a>  
-                        </li>
-                        @endif
-                        @can('viewAny', App\Models\Pengumuman::class)
-                        <li>
-                            <a href="" class="waves-effect @if(Request::is('pengumuman') || Request::is('pengumuman/*')) mm-active @endif">
-                                <i class="mdi mdi-newspaper-variant-outline"></i>
-                                <span>Pengumuman</span>
-                            </a>
-                        </li>
-                        @endcan
-                        @can('viewAny', App\Models\Level::class)
-                        <li>
-                            <a href="" class="waves-effect @if(Request::is('level') || Request::is('level/*')) mm-active @endif">
-                                <i class="mdi mdi-file-tree"></i>
-                                <span>Data Level</span>
-                            </a>
-                        </li>
-                        @endcan
-                        @can('viewAny', App\Models\Kelas::class)
-                        <li>
-                            <a href="" class="waves-effect @if(Request::is('class') || Request::is('class/*')) mm-active @endif">
-                                <i class="mdi mdi-google-classroom"></i>
-                                <span>Data Kelas</span>
-                            </a>
-                        </li>
-                        @endcan
-                        @can('viewAny', App\Models\Sesi::class)
-                        <li>
-                            <a href="" class="waves-effect @if(Request::is('sesi') || Request::is('sesi/*')) mm-active @endif">
-                                <i class="mdi mdi-av-timer"></i>
-                                <span>Data Sesi</span>
-                            </a>
-                        </li>
-                        @endcan
-                        @can('viewAny', App\Models\Ruangan::class)
-                        <li>
-                            <a href="" class="waves-effect @if(Request::is('ruangan') || Request::is('ruangan/*')) mm-active @endif">
-                                <i class="mdi mdi-home-account"></i>
-                                <span>Data Ruangan</span>
-                            </a>
-                        </li>
-                        @endcan
-                        @can('viewAny', App\Models\Jadwal::class)
-                        <li>
-                            <a href="" class="waves-effect @if(Request::is('jadwal') || Request::is('jadwal/*')) mm-active @endif">
-                                <i class="mdi mdi-clipboard-list-outline"></i>
-                                <span>Data Jadwal</span>
-                            </a>
-                        </li>
-                        @endcan
-                        @can('viewAny', App\Models\BankSoal::class)
-                        <li>
-                            <a href="" class="waves-effect @if(Request::is('banksoal') || Request::is('banksoal/*')) mm-active @endif">
-                                <i class="mdi mdi-bank"></i>
-                                <span>Bank Soal</span>
-                            </a>
-                        </li>
-                        @endcan
-                        @can('viewAny', App\Models\Paket::class)
-                        <li>
-                            <a href="" class="waves-effect @if(Request::is('paket') || Request::is('paket/*')) mm-active @endif">
-                                <i class="mdi mdi-gift-outline"></i>
-                                <span>Data Paket</span>
-                            </a>
-                        </li>
-                        @endcan
+                        <li><a href="/dataadmin"> <i class="mdi mdi-account-star"></i>Data Admin</a></li>
+                        <li><a href="/dataguru"> <i class="mdi mdi-account-tie"></i>Data Guru</a></li>
+                        <li><a href="/datasiswa"> <i class="mdi mdi-account-supervisor"></i>Data Siswa</a></li>
+                        <li><a href="/datakelas"> <i class="mdi mdi-google-classroom"></i>Data Kelas</a></li>
+                        <li><a href="/datajadwal"> <i class="mdi mdi-clipboard-list-outline"></i>Data Jadwal</a></li>
+                        <li><a href="/datalevel"> <i class="mdi mdi-file-tree"></i>Data Level</a></li>
+                        {{-- <li><a href="ui-images.html"> <i class="mdi mdi-gift-outline"></i>Data Paket</a></li> --}}
+                        <li><a href="/dataruangan"> <i class="mdi mdi-home-account"></i>Data Ruangan</a></li>
+                        <li><a href="/matapelajaran"> <i class="mdi mdi-notebook"></i>Mata Pelajaran</a></li>
+                        <li><a href="/banksoal"> <i class="mdi mdi-bank"></i>Bank Soal</a></li>
                     </ul>
                 </li>
-                @if(auth('admin')->user()->hasRole('admin'))
-                <li>
-                    <a href="" class="waves-effect @if(Request::is('kelasmurid') || Request::is('kelasmurid/*')) mm-active @endif">
+                {{-- <li>
+                    <a href="calendar.html" class=" waves-effect">
                         <i class="mdi mdi-account-multiple-plus-outline"></i>
                         <span>Kelas Murid</span>
                     </a>
-                </li>
+                </li> --}}
+
                 <li class="menu-title">Ujian</li>
                 <li>
-                    <a href="" class="waves-effect @if(Request::is('pelaksanaan') || Request::is('pelaksanaan/*')) mm-active @endif">
+                    <a href="calendar.html" class=" waves-effect">
                         <i class="mdi mdi-segment"></i>
                         <span>Pelaksanaan</span>
                     </a>
                 </li>
                 <li>
-                    <a href="" class="waves-effect @if(Request::is('aktivasi') || Request::is('aktivasi/*')) mm-active @endif">
+                    <a href="calendar.html" class=" waves-effect">
                         <i class="mdi mdi-lan-check"></i>
                         <span>Aktivasi Ujian</span>
                     </a>
                 </li>
+                
+                <li class="menu-title">Data Manajemen</li>
                 <li>
-                    <a href="" class="waves-effect @if(Request::is('aktivitas') || Request::is('aktivitas/*')) mm-active @endif">
-                        <i class="mdi mdi-history"></i>
-                        <span>Log Aktivitas</span>
-                    </a>
-                </li>
-                <li class="menu-title">Backup & Restore</li>
-                <li>
-                    <a href="" class="waves-effect @if(Request::is('importdata') || Request::is('importdata/*')) mm-active @endif">
+                    <a href="calendar.html" class=" waves-effect">
                         <i class="mdi mdi-cloud-upload-outline"></i>
                         <span>Import Data</span>
                     </a>
                 </li>
                 <li>
-                    <a href="" class="waves-effect @if(Request::is('export/multiple')) mm-active @endif">
+                    <a href="calendar.html" class=" waves-effect">
                         <i class="mdi mdi-cloud-print-outline"></i>
                         <span>Print Nilai</span>
                     </a>
                 </li>
-                @endif
+                <li>
             </ul>
         </div>
     </div>
