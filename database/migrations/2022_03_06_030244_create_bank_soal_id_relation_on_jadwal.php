@@ -13,10 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('bank_soal_id_relation_on_jadwal', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+        if(Schema::hasTable('bank_soal') && Schema::hasTable('jadwal'))
+        {
+            Schema::table('jadwal', function(Blueprint $table) {
+                $table->foreignId('bank_soal_id')->nullable()->constrained('bank_soal')->onDelete('set null');
+            });
+        }
     }
 
     /**

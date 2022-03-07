@@ -13,10 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('jadwal_id_relation_on_pelaksanaan', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+        if(Schema::hasTable('jadwal') && Schema::hasTable('pelaksanaan')) 
+        {
+            Schema::table('pelaksanaan', function(Blueprint $table) {
+                $table->foreignId('jadwal_id')->constrained('jadwal')->onDelete('cascade');
+            });
+        }
     }
 
     /**

@@ -13,10 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('bank_soal_id_relation_on_soal', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+        if(Schema::hasTable('bank_soal') && Schema::hasTable('soal'))
+        {
+            Schema::table('soal', function(Blueprint $table) {
+                $table->foreignId('bank_soal_id')->constrained('bank_soal');
+            });
+        }
     }
 
     /**

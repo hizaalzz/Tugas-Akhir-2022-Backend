@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('bank_soal', function (Blueprint $table) {
             $table->id();
+            $table->enum('opsi_pg', [1, 2, 3, 4, 5])->nullable();
+            $table->foreignId('level_id')->constrained('levels');
+            $table->foreignId('matapelajaran_id')->constrained('matapelajaran');
+            $table->foreignId('guru_id')->constrained('guru')->onDelete('cascade');
+            $table->enum('status', ['Aktif', 'Nonaktif']);
             $table->timestamps();
         });
     }

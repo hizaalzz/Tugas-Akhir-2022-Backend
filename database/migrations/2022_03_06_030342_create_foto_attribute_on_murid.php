@@ -13,10 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('foto_attribute_on_murid', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+        if(Schema::hasTable('murid'))
+        {
+            Schema::table('murid', function(Blueprint $table) {
+                $table->text('foto')->nullable();
+            });
+        }
     }
 
     /**

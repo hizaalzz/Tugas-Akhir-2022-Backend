@@ -14,8 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('admin_roles', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->foreignId('admin_id')->constrained('admins')->onDelete('cascade');
+            $table->foreignId('role_id')->constrained('roles');
+
+            $table->primary(['admin_id', 'role_id']);
         });
     }
 

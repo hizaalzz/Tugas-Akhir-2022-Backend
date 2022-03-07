@@ -13,9 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('guru_matapelajaran_pivot', function (Blueprint $table) {
+        Schema::create('guru_matapelajaran', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->foreignId('guru_id')->constrained('guru')->onDelete('cascade');
+            $table->foreignId('matapelajaran_id')->constrained('matapelajaran')->onDelete('cascade');
         });
     }
 

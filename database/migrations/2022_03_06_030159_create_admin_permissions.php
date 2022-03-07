@@ -14,8 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('admin_permissions', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->foreignId('admin_id')->constrained('admins');
+           $table->foreignId('permission_id')->constrained('permissions');
+
+           $table->primary(['admin_id', 'permission_id']);
         });
     }
 
