@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('jawaban', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('jadwal_id')->constrained('jadwal')->nullable();
+            $table->foreignId('paket_id')->constrained('paket')->nullable();
+            $table->foreignId('murid_id')->constrained('murid')->nullable();
+            $table->foreignId('soal_id')->constrained('soal')->nullable();
+            $table->text('jawaban')->nullable();
+            $table->string('ragu')->nullable();
             $table->timestamps();
         });
     }

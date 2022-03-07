@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('pengumuman', function (Blueprint $table) {
             $table->id();
+            $table->string('judul', 50);
+            $table->text('konten');
+            $table->enum('jenis', ['guru', 'murid', 'keduanya']);
             $table->timestamps();
         });
     }

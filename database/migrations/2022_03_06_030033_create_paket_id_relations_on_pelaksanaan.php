@@ -13,9 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('paket_id_relations_on_pelaksanaan', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::table('pelaksanaan', function (Blueprint $table) {
+            $table->foreignId('paket_id')->constrained('paket');
         });
     }
 

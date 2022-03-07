@@ -15,8 +15,15 @@ return new class extends Migration
     {
         Schema::create('penilaian', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('jadwal_id', false)->unsigned()->nullable();
+            $table->integer('bobot_pg')->nullable();
+            $table->integer('bobot_essay')->nullable();
             $table->timestamps();
         });
+
+        Schema::table('penilaian', function(Blueprint $table) {
+            $table->foreign('jadwal_id')->references('id')->on('jadwal')->onDelete('set null');
+        }); 
     }
 
     /**

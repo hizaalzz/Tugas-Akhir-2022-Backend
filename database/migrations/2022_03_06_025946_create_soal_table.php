@@ -15,6 +15,16 @@ return new class extends Migration
     {
         Schema::create('soal', function (Blueprint $table) {
             $table->id();
+            $table->integer('nomor_soal');
+            $table->longText('isi');
+            $table->text('pilA')->nullable();
+            $table->text('pilB')->nullable();
+            $table->text('pilC')->nullable();
+            $table->text('pilD')->nullable();
+            $table->text('pilE')->nullable();
+            $table->string('kunci_jawaban')->nullable();
+            $table->string('jenis');
+            $table->foreignId('paket_id')->constrained('paket')->nullable();
             $table->timestamps();
         });
     }

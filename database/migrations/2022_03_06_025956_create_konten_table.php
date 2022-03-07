@@ -15,8 +15,18 @@ return new class extends Migration
     {
         Schema::create('konten', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('soal_id', false)->unsigned();
+            $table->text('isi')->nullable();
+            $table->enum('type', ['image', 'audio']);
+            $table->enum('layout', ['top', 'bottom']);
             $table->timestamps();
         });
+
+        if(Schema::hasTable('konten')) {
+            Schema::table('konten', function(Blueprint $table) {
+                $table->foreign('soal_id')->references('id')->on('soal');
+            });
+        }
     }
 
     /**

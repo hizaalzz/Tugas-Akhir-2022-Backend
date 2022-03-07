@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('status_field_on_jawaban', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+        if (Schema::hasTable('jawaban')) {
+            Schema::table('jawaban', function(Blueprint $table) {
+                $table->string('status')->nullable();
+            });
+        }
     }
 
     /**
