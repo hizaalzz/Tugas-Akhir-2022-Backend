@@ -2,7 +2,7 @@
 @section('title', 'Login Murid')
 @section('content')
 <div class="col d-none d-md-flex d-lg-flex justify-content-center bg-white">
-    <img src="{{ asset('/images/siswa-removebg.png') }}" width="200px" height="500px" style="margin-top: 100px" alt="" class="w-75">
+    <img src="{{ asset('/images/book_login.svg') }}" alt="" class="w-75">
 </div>
 <div class="col d-flex align-items-center bg-white">
     <div class="p-4 w-100">
@@ -10,11 +10,11 @@
             <a href="{{ route('admin.login') }}">Login Guru <i class="mdi mdi-arrow-right"></i></a>
         </div>
 
-        {{-- @include('messages.alert') --}}
+        @include('messages.alert')
         
         <div class="bg-white d-flex flex-column pt-4 pb-0">
             <h1><strong>Selamat Datang</strong></h1>
-            <p>Login untuk melanjutkan</p>
+            <p>Silahkan login untuk melanjutkan</p>
         </div>
         <div class="pt-4">
             {!! Form::open(['route' => 'login', 'method' => 'POST']) !!}
