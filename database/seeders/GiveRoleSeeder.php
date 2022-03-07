@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Admin;
+use App\Models\Role;
 
 class GiveRoleSeeder extends Seeder
 {
@@ -14,6 +15,13 @@ class GiveRoleSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $adminRole = Role::where('slug', 'admin')->first();
+        $guruRole = Role::where('slug', 'guru')->first();
+
+        $superAdminUser = Admin::where('email', 'admin@gmail.com')->first();
+        $guruUser = Admin::where('email', 'hendripassah@gmail.com')->first();
+
+        $superAdminUser->roles()->attach($adminRole);
+        $guruUser->roles()->attach($guruRole);
     }
 }

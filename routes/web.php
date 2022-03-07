@@ -28,4 +28,10 @@ Route::prefix('admin')->group(function() {
     Route::get('/logout', [LoginController::class, 'logout'])->name('admin.logout');
 });
 
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+Auth::routes(['register' => false, 'logout' => false]);
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+
 Auth::routes();

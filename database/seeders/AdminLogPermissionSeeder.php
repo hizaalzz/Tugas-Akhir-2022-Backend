@@ -2,7 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Admin;
+use App\Models\Permission;
 use Illuminate\Database\Seeder;
 
 class AdminLogPermissionSeeder extends Seeder
@@ -14,6 +15,8 @@ class AdminLogPermissionSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $admin = Admin::where('email', 'admin@gmail.com')->first();
+
+        $admin->givePermissionsTo('hapus-log');
     }
 }
