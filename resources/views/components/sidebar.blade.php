@@ -19,13 +19,13 @@
             <ul class="metismenu list-unstyled" id="side-menu">
                 <li class="menu-title">Menu</li>
                 <li>
-                    <a href="/dashboardadmin" class=" waves-effect">
+                    <a href="{{ route('dashboard') }}" class="waves-effect">
                         <i class="mdi mdi-airplay"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/penilaian" class=" waves-effect">
+                    <a href="" class="waves-effect">
                         <i class="mdi mdi-lead-pencil"></i>
                         <span>Hasil Ujian</span>
                     </a>

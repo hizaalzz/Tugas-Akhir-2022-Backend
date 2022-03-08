@@ -9,7 +9,7 @@
 
         <div class="bg-white d-flex flex-column pt-4 pb-0">
             <h1><strong>Login Guru</strong></h1>
-            <p>Silahkan login untuk melanjutkan</p>
+            <p>Login untuk melanjutkan</p>
         </div>
         <div class="pt-4">
             {!! Form::open(['route' => 'admin.login', 'method' => 'POST']) !!}
@@ -53,7 +53,7 @@
         </div>
     </div>
 </div>
-<div class="col d-none d-md-flex d-lg-flex justify-content-center">
-    <img src="{{ asset('/images/presentation.svg') }}" alt="" class="w-75">
+<div class="col d-none d-md-flex d-lg-flex justify-content-center bg-white">
+    <img src="{{ asset('/images/guru.jpg') }}" width="200px" height="500px" style="margin-top: 100px" alt="" class="w-75">
 </div>
 @endsection

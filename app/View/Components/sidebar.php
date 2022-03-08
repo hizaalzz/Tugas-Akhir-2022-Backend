@@ -4,9 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-use Carbon\Carbon;
-
-class FooterAuth extends Component
+class Sidebar extends Component
 {
     /**
      * Create a new component instance.
@@ -25,8 +23,6 @@ class FooterAuth extends Component
      */
     public function render()
     {
-        $year = Carbon::now()->format('Y');
-        
-        return view('components.footer-auth', compact('year'));
+        return view('components.sidebar');
     }
 }

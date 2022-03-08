@@ -56,22 +56,22 @@
         <div>
             <!-- LOGO -->
             <div class="navbar-brand-box">
-                <a href="index.html" class="logo logo-dark">
+                {{-- <a href="index.html" class="logo logo-dark">
                     <span class="logo-sm">
                         <img src="{{ asset('/images/cbt_logo_only.svg') }}" alt="" height="30">
                     </span>
                     <span class="logo-lg">
                         <img src="{{ asset('/images/cbt_logo.svg') }}" alt="" height="40">
                     </span>
-                </a>
+                </a> --}}
 
                 <a href="index.html" class="logo logo-light">
-                    <span class="logo-sm">
+                    {{-- <span class="logo-sm">
                         <img src="{{ asset('/images/cbt_logo_only.svg') }}" alt="" height="30">
                     </span>
                     <span class="logo-lg">
                         <img src="{{ asset('/images/cbt_logo_white.svg') }}" alt="" height="40">
-                    </span>
+                    </span> --}}
                 </a>
             </div>
 
