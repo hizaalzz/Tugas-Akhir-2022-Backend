@@ -34,4 +34,7 @@ Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 Auth::routes(['register' => false, 'logout' => false]);
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
+Route::resource('/penilaian', 'PenilaianController')->only(['index', 'show']);
+
+
 Auth::routes();

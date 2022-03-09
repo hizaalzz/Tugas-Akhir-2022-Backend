@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
+use Spatie\Activitylog\Models\Activity;
 
-class Logs extends Model
+class Logs extends Activity 
 {
-    use HasFactory;
+    public function getCreatedAtAttribute($value) 
+    {
+        return Carbon::parse($value)->format('d-m-Y h:i:s');
+    }
 }

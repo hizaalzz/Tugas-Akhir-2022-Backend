@@ -2,10 +2,31 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+
+use App\Logs\LogsTrait;
 
 class Kelas extends Model
 {
-    use HasFactory;
+    use LogsTrait;
+    
+    protected $table = 'kelas';
+    protected $fillable = ['nama_kelas', 'level_id'];
+
+    protected static $propertyLogsToShow = 'nama_kelas';
+
+    public function level() 
+    {
+        return $this->belongsTo('App\Models\Level');
+    }
+
+    public function murid() 
+    {
+        return $this->hasMany('App\Models\Murid');
+    }
+
+    public function jadwal() 
+    {
+        return $this->hasMany('App\Models\Jadwal');
+    }
 }
