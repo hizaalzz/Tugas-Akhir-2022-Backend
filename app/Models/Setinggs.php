@@ -2,10 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Spatie\Valuestore\Valuestore;
 
-class Setinggs extends Model
+class Setinggs extends Valuestore
 {
     use HasFactory;
 }
