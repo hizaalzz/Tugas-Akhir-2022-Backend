@@ -36,5 +36,7 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::resource('/penilaian', 'PenilaianController')->only(['index', 'show']);
 Route::resource('/manage/admin', 'AdminController')->except(['edit', 'update', 'store', 'show']);
+Route::resource('/guru', 'GuruController');
+
 
 Auth::routes();
