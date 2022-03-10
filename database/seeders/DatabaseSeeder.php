@@ -17,5 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(RoleSeeder::class);
         $this->call(AdminSeeder::class);
         $this->call(AdminLogPermissionSeeder::class);
+        $this->call(PermissionsSeeder::class);
+        $this->call(PermissionRoleSeeder::class);
     }
 }
