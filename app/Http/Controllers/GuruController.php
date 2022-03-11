@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Guru;
+use App\Models\Admin;
 use App\DataTables\GuruDataTable;
 use App\Http\Requests\GuruRequest;
 use App\Models\Matapelajaran;
-use App\Models\Guru;
-use App\Models\Admin;
 use App\Classes\GenerateCredential;
 use Illuminate\Support\Facades\Auth;
 use HandleFile;

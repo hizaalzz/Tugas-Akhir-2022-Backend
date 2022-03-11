@@ -37,6 +37,17 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::resource('/penilaian', 'PenilaianController')->only(['index', 'show']);
 Route::resource('/manage/admin', 'AdminController')->except(['edit', 'update', 'store', 'show']);
 Route::resource('/guru', 'GuruController');
+Route::resource('/murid', 'MuridController');
+Route::resource('/class', 'KelasController');
+Route::resource('/level', 'LevelController')->except(['show']);
+Route::resource('/matapelajaran', 'MatapelajaranController')->except(['show']);
 
+Route::post('/gurumapel/{id}/add', 'GuruMatapelajaranController@addMatapelajaran')->name('gurumapel.store');
+Route::delete('/gurumapel/{id}/remove', 'GuruMatapelajaranController@removeMatapelajaran')->name('gurumapel.remove');
 
+Route::post('/change/password', 'ChangePasswordController')->name('change.password');
+Route::post('/change/murid/password', 'ChangeMuridPasswordController')->name('change.murid.password');
+
+Route::post('/class/{kelas}/murid/delete', 'DeleteMuridController')->name('murid.delete');
+Route::post('/class/{kelas}/murid/tambah', 'TambahMuridController')->name('murid.add');
 Auth::routes();

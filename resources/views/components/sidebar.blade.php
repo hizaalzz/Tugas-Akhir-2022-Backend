@@ -57,14 +57,39 @@
                             </a>
                         </li>
                         @endcan
+                        @can('viewAny', App\Models\Murid::class)
                         <li>
-                            <a href=""
+                            <a href="{{ route('murid.index') }}"
                                 class="waves-effect @if(Request::is('murid') || Request::is('murid/*')) mm-active @endif">
                                 <i class="mdi mdi-account-supervisor"></i>
                                 <span>Data Murid</span>
                             </a>
                         </li>
-                        
+                        @endcan
+                        @can('viewAny', App\Models\Kelas::class)
+                        <li>
+                            <a href="{{ route('class.index') }}" class="waves-effect @if(Request::is('class') || Request::is('class/*')) mm-active @endif">
+                                <i class="mdi mdi-google-classroom"></i>
+                                <span>Data Kelas</span>
+                            </a>
+                        </li>
+                        @endcan
+                        @can('viewAny', App\Models\Level::class)
+                        <li>
+                            <a href="{{ route('level.index') }}" class="waves-effect @if(Request::is('level') || Request::is('level/*')) mm-active @endif">
+                                <i class="mdi mdi-file-tree"></i>
+                                <span>Data Level</span>
+                            </a>
+                        </li>
+                        @endcan
+                        @can('viewAny', App\Models\Matapelajaran::class)
+                        <li>
+                            <a href="{{ route('matapelajaran.index') }}" class="waves-effect @if(Request::is('matapelajaran') || Request::is('matapelajaran/*')) mm-active @endif">
+                                <i class="mdi mdi-notebook"></i>
+                                <span>Matapelajaran</span>
+                            </a>  
+                        </li>
+                        @endcan
                     </ul>
                 </li>
             </ul>
