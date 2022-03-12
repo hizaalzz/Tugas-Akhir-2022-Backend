@@ -7,6 +7,8 @@ use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
 
+use App\Events\LogEvent;
+
 class EventServiceProvider extends ServiceProvider
 {
     /**
@@ -17,6 +19,7 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         Registered::class => [
             SendEmailVerificationNotification::class,
+            LogEvent::class,
         ],
     ];
 
@@ -27,7 +30,7 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        parent::boot();
     }
 
     /**
@@ -37,6 +40,6 @@ class EventServiceProvider extends ServiceProvider
      */
     public function shouldDiscoverEvents()
     {
-        return false;
+        // return false;
     }
 }

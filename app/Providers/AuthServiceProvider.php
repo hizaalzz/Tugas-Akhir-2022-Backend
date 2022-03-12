@@ -5,6 +5,9 @@ namespace App\Providers;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
+use App\Models\Murid;
+use App\Policies\MuridPolicy;
+
 class AuthServiceProvider extends ServiceProvider
 {
     /**
@@ -13,7 +16,12 @@ class AuthServiceProvider extends ServiceProvider
      * @var array<class-string, class-string>
      */
     protected $policies = [
-        // 'App\Models\Model' => 'App\Policies\ModelPolicy',
+        'App\Models\User' => 'App\Policies\UserPolicy',
+        'App\Models\Murid' => 'App\Policies\MuridPolicy',
+        'App\Models\Guru' => 'App\Policies\GuruPolicy',
+        'App\Models\Kelas' => 'App\Policies\KelasPolicy',
+        'App\Models\Matapelajaran' => 'App\Policies\MatapelajaranPolicy',
+        'App\Models\Soal' => 'App\Policies\SoalPolicy'
     ];
 
     /**

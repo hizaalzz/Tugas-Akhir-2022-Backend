@@ -41,6 +41,18 @@ Route::resource('/murid', 'MuridController');
 Route::resource('/class', 'KelasController');
 Route::resource('/level', 'LevelController')->except(['show']);
 Route::resource('/matapelajaran', 'MatapelajaranController')->except(['show']);
+Route::resource('/jadwal', 'JadwalController');
+Route::resource('/jenisujian', 'JenisUjianController')->except('show');
+
+
+Route::prefix('get')->group(function() {
+    Route::get('/kelas/matapelajaran', 'SingleDataController@getMatapelajaranFromKelas')->name('matapelajaran.findby.kelas');
+    Route::get('/jurusan/matapelajaran', 'SingleDataController@getMatapelajaranFromJurusan')->name('matapelajaran.findby.jurusan');
+    Route::get('/guru/matapelajaran', 'SingleDataController@getGuruFromMatapelajaran')->name('guru.findby.matapelajaran');
+    Route::get('/soal/id', 'SingleDataController@getSoalById')->name('soal.findby.id');
+    Route::get('/matapelajaran/banksoal', 'SingleDataController@getBankSoalFromMatapelajaran')->name('banksoal.findby.matapelajaran');
+    Route::get('/kelas/siswa', 'SingleDataController@getMuridFromKelas')->name('murid.findby.kelas');
+});
 
 Route::post('/gurumapel/{id}/add', 'GuruMatapelajaranController@addMatapelajaran')->name('gurumapel.store');
 Route::delete('/gurumapel/{id}/remove', 'GuruMatapelajaranController@removeMatapelajaran')->name('gurumapel.remove');

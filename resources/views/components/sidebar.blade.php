@@ -90,6 +90,22 @@
                             </a>  
                         </li>
                         @endcan
+                        @can('viewAny', App\Models\Jadwal::class)
+                        <li>
+                            <a href="{{ route('jadwal.index') }}" class="waves-effect @if(Request::is('jadwal') || Request::is('jadwal/*')) mm-active @endif">
+                                <i class="mdi mdi-clipboard-list-outline"></i>
+                                <span>Data Jadwal</span>
+                            </a>
+                        </li>
+                        @endcan
+                        @if(Auth::guard('admin')->check())
+                        <li>    
+                            <a href="{{ route('jenisujian.index') }}" class="waves-effect @if(Request::is('jenisujian') || Request::is('jenisujian/*')) mm-active @endif">
+                                <i class="mdi mdi-format-list-checkbox"></i>
+                                <span>Data Jenis Ujian</span>
+                            </a>  
+                        </li>
+                        @endif
                     </ul>
                 </li>
             </ul>
