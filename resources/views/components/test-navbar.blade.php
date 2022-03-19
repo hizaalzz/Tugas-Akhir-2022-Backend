@@ -1,6 +1,6 @@
 <nav class="flex items-center justify-between flex-wrap bg-white border-b shadow-sm">
     <div class="flex items-center flex-shrink-0 text-gray-900 mr-6 pl-4 py-2">
-        <img src="{{ asset('/images/cbt_logo.svg') }}" alt="" class="w-32">
+        {{-- <img src="{{ asset('/images/favicon.svg') }}" alt="" class="w-32"> --}}
         <span class="font-semibold text-lg tracking-tight ml-2"></span>
     </div>
     @if(!Request::is('ujian'))

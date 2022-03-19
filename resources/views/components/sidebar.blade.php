@@ -82,14 +82,6 @@
                             </a>
                         </li>
                         @endcan
-                        @can('viewAny', App\Models\Matapelajaran::class)
-                        <li>
-                            <a href="{{ route('matapelajaran.index') }}" class="waves-effect @if(Request::is('matapelajaran') || Request::is('matapelajaran/*')) mm-active @endif">
-                                <i class="mdi mdi-notebook"></i>
-                                <span>Matapelajaran</span>
-                            </a>  
-                        </li>
-                        @endcan
                         @can('viewAny', App\Models\Jadwal::class)
                         <li>
                             <a href="{{ route('jadwal.index') }}" class="waves-effect @if(Request::is('jadwal') || Request::is('jadwal/*')) mm-active @endif">
@@ -106,8 +98,88 @@
                             </a>  
                         </li>
                         @endif
+                        @can('viewAny', App\Models\Paket::class)
+                        <li>
+                            <a href="{{ route('paket.index') }}" class="waves-effect @if(Request::is('paket') || Request::is('paket/*')) mm-active @endif">
+                                <i class="mdi mdi-gift-outline"></i>
+                                <span>Data Paket</span>
+                            </a>
+                        </li>
+                        @endcan
+                        @can('viewAny', App\Models\Sesi::class)
+                        <li>
+                            <a href="{{ route('sesi.index') }}" class="waves-effect @if(Request::is('sesi') || Request::is('sesi/*')) mm-active @endif">
+                                <i class="mdi mdi-av-timer"></i>
+                                <span>Data Sesi</span>
+                            </a>
+                        </li>
+                        @endcan
+                        @can('viewAny', App\Models\Ruangan::class)
+                        <li>
+                            <a href="{{ route('ruangan.index') }}" class="waves-effect @if(Request::is('ruangan') || Request::is('ruangan/*')) mm-active @endif">
+                                <i class="mdi mdi-home-account"></i>
+                                <span>Data Ruangan</span>
+                            </a>
+                        </li>
+                        @endcan
+                        @can('viewAny', App\Models\Matapelajaran::class)
+                        <li>
+                            <a href="{{ route('matapelajaran.index') }}" class="waves-effect @if(Request::is('matapelajaran') || Request::is('matapelajaran/*')) mm-active @endif">
+                                <i class="mdi mdi-notebook"></i>
+                                <span>Matapelajaran</span>
+                            </a>  
+                        </li>
+                        @endcan
+                        @can('viewAny', App\Models\BankSoal::class)
+                        <li>
+                            <a href="{{ route('banksoal.index') }}" class="waves-effect @if(Request::is('banksoal') || Request::is('banksoal/*')) mm-active @endif">
+                                <i class="mdi mdi-bank"></i>
+                                <span>Bank Soal</span>
+                            </a>
+                        </li>
+                        @endcan
                     </ul>
                 </li>
+                @if(auth('admin')->user()->hasRole('admin'))
+                <li>
+                    <a href="" class="waves-effect @if(Request::is('kelasmurid') || Request::is('kelasmurid/*')) mm-active @endif">
+                        <i class="mdi mdi-account-multiple-plus-outline"></i>
+                        <span>Kelas Murid</span>
+                    </a>
+                </li>
+                <li class="menu-title">Ujian</li>
+                <li>
+                    <a href="" class="waves-effect @if(Request::is('pelaksanaan') || Request::is('pelaksanaan/*')) mm-active @endif">
+                        <i class="mdi mdi-segment"></i>
+                        <span>Pelaksanaan</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="" class="waves-effect @if(Request::is('aktivasi') || Request::is('aktivasi/*')) mm-active @endif">
+                        <i class="mdi mdi-lan-check"></i>
+                        <span>Aktivasi Ujian</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="" class="waves-effect @if(Request::is('aktivitas') || Request::is('aktivitas/*')) mm-active @endif">
+                        <i class="mdi mdi-history"></i>
+                        <span>Log Aktivitas</span>
+                    </a>
+                </li>
+                <li class="menu-title">Backup & Restore</li>
+                <li>
+                    <a href="" class="waves-effect @if(Request::is('importdata') || Request::is('importdata/*')) mm-active @endif">
+                        <i class="mdi mdi-cloud-upload-outline"></i>
+                        <span>Import Data</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="" class="waves-effect @if(Request::is('export/multiple')) mm-active @endif">
+                        <i class="mdi mdi-cloud-print-outline"></i>
+                        <span>Print Nilai</span>
+                    </a>
+                </li>
+                @endif
             </ul>
         </div>
     </div>

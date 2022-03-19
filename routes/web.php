@@ -43,6 +43,9 @@ Route::resource('/level', 'LevelController')->except(['show']);
 Route::resource('/matapelajaran', 'MatapelajaranController')->except(['show']);
 Route::resource('/jadwal', 'JadwalController');
 Route::resource('/jenisujian', 'JenisUjianController')->except('show');
+Route::resource('/banksoal', 'BankSoalController');
+Route::resource('/paket', 'PaketController')->except(['show']);
+Route::resource('/sesi', 'SesiController')->except(['show']);
 
 
 Route::prefix('get')->group(function() {
